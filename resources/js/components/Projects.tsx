@@ -5,16 +5,20 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Globe, Layers } from "lucide-react";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
 
-// Fallback images for existing projects
+// Fallback images for existing and newly added projects
 import shubbanPreview from "@/assets/shubban-preview.jpg";
 import lamaanPreview from "@/assets/lamaan-preview.jpg";
 import webDevPreview from "@/assets/web-dev-preview.jpg";
+import graphicsPreview from "@/assets/graphics-preview.jpg";
+import videoPreview from "@/assets/video-preview.jpg";
 
-const defaultImages: Record<number, string> = {
-  0: shubbanPreview,
-  1: lamaanPreview,
-  2: webDevPreview,
-};
+const fallbackImages = [
+  shubbanPreview,
+  lamaanPreview,
+  webDevPreview,
+  graphicsPreview,
+  videoPreview,
+];
 
 const Projects = () => {
   const { settings } = useSiteSettings();
@@ -68,7 +72,16 @@ const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {filteredItems.map((project, index) => {
             const originalIndex = items.indexOf(project);
-            const imgSrc = project.image || defaultImages[originalIndex >= 0 ? originalIndex : 0];
+            const fallback = fallbackImages[(originalIndex >= 0 ? originalIndex : index) % fallbackImages.length];
+            const imgSrc = (project.image && typeof project.image === 'string' && project.image.trim() !== "") 
+              ? project.image 
+              : fallback;
+
+            const demoUrl = project.demo 
+              ? (project.demo.startsWith('http://') || project.demo.startsWith('https://') 
+                  ? project.demo 
+                  : `https://${project.demo}`) 
+              : '';
 
             return (
               <Card 
@@ -76,29 +89,33 @@ const Projects = () => {
                 className="gradient-card hover-lift border border-border/80 group overflow-hidden flex flex-col justify-between shadow-sm rounded-xl sm:rounded-2xl"
               >
                 <div>
-                  {/* Project Image or Sleek Gradient Banner */}
+                  {/* Project Image Banner */}
                   <div className="h-36 sm:h-48 bg-muted overflow-hidden relative">
-                    {imgSrc ? (
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
-                        <img 
-                          src={imgSrc} 
-                          alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          onError={(e) => {
-                            (e.target as HTMLElement).style.display = 'none';
-                          }}
-                        />
-                      </a>
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-primary/10 via-background to-secondary/20 flex items-center justify-center">
-                        <Globe className="w-12 h-12 text-primary/40 group-hover:scale-110 transition-transform" />
+                    <a 
+                      href={demoUrl || '#'} 
+                      target={demoUrl ? "_blank" : undefined} 
+                      rel="noopener noreferrer" 
+                      className="block w-full h-full"
+                    >
+                      <img 
+                        src={imgSrc} 
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          if (target.src !== fallback) {
+                            target.src = fallback;
+                          }
+                        }}
+                      />
+                    </a>
+                    {project.category && (
+                      <div className="absolute top-3 right-3">
+                        <Badge variant="secondary" className="backdrop-blur-md bg-background/90 text-xs shadow-sm font-medium">
+                          {project.category}
+                        </Badge>
                       </div>
                     )}
-                    <div className="absolute top-3 right-3">
-                      <Badge variant="secondary" className="backdrop-blur-md bg-background/90 text-xs shadow-sm font-medium">
-                        {project.category}
-                      </Badge>
-                    </div>
                   </div>
                   
                   <CardHeader className="pb-3 sm:pb-4">
@@ -113,7 +130,7 @@ const Projects = () => {
                 
                 <CardContent className="pt-0">
                   <div className="flex flex-wrap gap-1.5 mb-5">
-                    {project.technologies.map((tech, techIndex) => (
+                    {project.technologies?.map((tech, techIndex) => (
                       <Badge 
                         key={techIndex} 
                         variant="outline" 
@@ -124,13 +141,13 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  {project.demo && (
+                  {demoUrl && (
                     <Button 
                       asChild 
                       variant="outline" 
                       className="w-full rounded-xl hover:bg-primary hover:text-primary-foreground group/btn"
                     >
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                      <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                         <span>লাইভ ওয়েবসাইট দেখুন</span>
                         <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       </a>
