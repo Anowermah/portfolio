@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Elegant, Simple & Tasteful Design System (All colors in HSL) */
+
+@layer base {
+  :root {
+    /* Clean, Tasteful Light Mode */
+    --background: 210 20% 98%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    /* Refined Royal Blue / Indigo Primary */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 217.2 91.2% 65%;
+    --primary-dark: 224.3 76.3% 42%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 214 32% 91%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent-dark: 215 16% 47%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    /* Tasteful, subtle gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-card: hsl(var(--card));
+    --gradient-accent: hsl(var(--secondary));
+    --gradient-mesh: radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.05) 0%, transparent 60%);
+
+    /* Soft modern shadows */
+    --shadow-elegant: 0 10px 25px -5px hsl(var(--primary) / 0.12);
+    --shadow-glow: 0 0 25px hsl(var(--primary) / 0.15);
+    --shadow-accent: 0 4px 14px 0 hsl(var(--primary) / 0.1);
+    --shadow-card: 0 2px 10px -2px rgba(15, 23, 42, 0.04), 0 1px 3px -1px rgba(15, 23, 42, 0.03);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 222.2 47.4% 11.2%;
+    --sidebar-primary: 221.2 83.2% 53.3%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 221.2 83.2% 53.3%;
+  }
+
+  .dark {
+    /* Sophisticated Dark Mode (Deep Slate) */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-glow: 217.2 91.2% 70%;
+    --primary-dark: 221.2 83.2% 53.3%;
+
+    --secondary: 217.2 32.6% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --accent-dark: 217.2 32.6% 12%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 16%;
+    --input: 217.2 32.6% 16%;
+    --ring: 217.2 91.2% 59.8%;
+
+    --gradient-hero: linear-gradient(180deg, hsl(224 71% 4%) 0%, hsl(222 47% 7%) 100%);
+    --gradient-card: hsl(var(--card));
+    --gradient-accent: hsl(var(--secondary));
+    --gradient-mesh: radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.08) 0%, transparent 60%);
+
+    --shadow-elegant: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 25px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 2px 10px -2px rgba(0, 0, 0, 0.4);
+
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217.2 91.2% 59.8%;
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
+    --sidebar-accent: 217.2 32.6% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 16%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-hind-siliguri antialiased selection:bg-primary/20 selection:text-primary;
+  }
+}
+
+@layer utilities {
+  /* Simple and clean backgrounds */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  /* Tasteful Shadows */
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  /* Tasteful Hover effects */
+  .hover-lift {
+    @apply transition-smooth hover:-translate-y-1 hover:shadow-elegant;
+  }
+  
+  .hover-scale {
+    @apply transition-smooth hover:scale-[1.02];
+  }
+  
+  /* Elegant, simple text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-primary-glow to-primary bg-clip-text text-transparent;
+  }
+  
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+  
+  /* Glass morphism (Clean & subtle) */
+  .glass {
+    @apply bg-background/80 backdrop-blur-md border border-border/60;
+  }
+  
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/70;
+  }
+}
+
+@layer components {
+  /* Card components */
+  .card-modern {
+    @apply bg-card border border-border rounded-2xl p-6 shadow-card hover-lift transition-all;
+  }
+  
+  .card-glass {
+    @apply glass-card rounded-2xl p-6 shadow-card hover-lift transition-all;
+  }
+  
+  /* Section styling */
+  .section-padding {
+    @apply py-16 sm:py-24 px-4 sm:px-6;
+  }
+  
+  .section-title {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4 text-foreground tracking-tight;
+  }
+  
+  .section-subtitle {
+    @apply text-sm sm:text-base text-muted-foreground text-center max-w-2xl mx-auto mb-10 sm:mb-14;
+  }
+}
