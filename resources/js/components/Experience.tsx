@@ -8,13 +8,13 @@ const Experience = () => {
   const experienceData = settings.experience;
 
   return (
-    <section className="py-16 sm:py-24 bg-background">
+    <section className="py-8 sm:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="animate-fade-in text-center mb-10 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+        <div className="animate-fade-in text-center mb-6 sm:mb-16">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">
             {experienceData.section_title || 'কর্মঅভিজ্ঞতা'}
           </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-xs sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             {experienceData.section_subtitle || 'বিভিন্ন প্রতিষ্ঠানে কাজের অভিজ্ঞতা এবং দক্ষতা অর্জনের যাত্রা'}
           </p>
         </div>

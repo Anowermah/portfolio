@@ -50,32 +50,32 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-16 sm:py-24 bg-card/40 relative overflow-hidden border-y border-border/50">
+    <section id="about" className="py-8 sm:py-20 bg-card/40 relative overflow-hidden border-y border-border/50">
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-16">
           {about.badge && (
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs sm:text-sm font-medium mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] sm:text-sm font-medium mb-2 sm:mb-3">
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary" />
               <span>{about.badge}</span>
             </div>
           )}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">
             {about.section_title || 'পরিচিতি ও কর্মজীবন'}
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground px-2">
+          <p className="text-xs sm:text-base text-muted-foreground px-2">
             {about.section_subtitle}
           </p>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-start max-w-6xl mx-auto">
           {/* Left Column: Avatar & Quick Info Card */}
-          <div className="lg:col-span-5 space-y-6">
-            <Card className="gradient-card border border-border/80 shadow-md rounded-3xl overflow-hidden p-6 sm:p-8 text-center relative">
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+            <Card className="gradient-card border border-border/80 shadow-md rounded-2xl sm:rounded-3xl overflow-hidden p-4 sm:p-8 text-center relative">
               {/* Profile Avatar Frame */}
-              <div className="relative mx-auto w-36 h-36 sm:w-44 sm:h-44 rounded-3xl p-1 bg-gradient-to-tr from-primary via-primary-glow to-secondary shadow-lg mb-6 group">
-                <div className="w-full h-full rounded-[22px] bg-card overflow-hidden flex items-center justify-center relative">
+              <div className="relative mx-auto w-24 h-24 sm:w-44 sm:h-44 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-tr from-primary via-primary-glow to-secondary shadow-md sm:shadow-lg mb-3 sm:mb-6 group">
+                <div className="w-full h-full rounded-[14px] sm:rounded-[22px] bg-card overflow-hidden flex items-center justify-center relative">
                   {about.avatar_url ? (
                     <img 
                       src={about.avatar_url} 
@@ -93,28 +93,28 @@ const About = () => {
               </div>
 
               {/* Name & Title */}
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1">
+              <h3 className="text-lg sm:text-2xl font-bold text-foreground mb-0.5 sm:mb-1">
                 {hero.name}
               </h3>
-              <p className="text-xs sm:text-sm font-medium text-primary mb-4">
+              <p className="text-xs sm:text-sm font-medium text-primary mb-2.5 sm:mb-4">
                 {hero.title}
               </p>
 
               {/* Status Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-xs font-semibold mb-6">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
                 <span>{about.availability || 'কাজের জন্য প্রস্তুত (Available)'}</span>
               </div>
 
               {/* Quick Info Items List */}
-              <div className="space-y-3 text-left border-t border-border/80 pt-5">
+              <div className="space-y-1.5 sm:space-y-3 text-left border-t border-border/80 pt-3 sm:pt-5">
                 {about.info_items?.map((item, idx) => (
-                  <div key={idx} className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-border/40 last:border-b-0">
-                    <span className="text-muted-foreground flex items-center gap-2">
-                      {infoIcons[item.label] || <CheckCircle2 className="w-4 h-4 text-primary" />}
+                  <div key={idx} className="flex items-center justify-between text-xs sm:text-sm py-0.5 sm:py-1 border-b border-border/40 last:border-b-0">
+                    <span className="text-muted-foreground flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs">
+                      {infoIcons[item.label] || <CheckCircle2 className="w-3.5 h-3.5 text-primary" />}
                       {item.label}
                     </span>
-                    <span className="font-semibold text-foreground text-right">{item.value}</span>
+                    <span className="font-semibold text-foreground text-right text-[11px] sm:text-xs">{item.value}</span>
                   </div>
                 ))}
               </div>

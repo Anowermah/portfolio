@@ -129,44 +129,44 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-background">
+    <section className="py-8 sm:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+        <div className="text-center mb-6 sm:mb-16">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">
             {contactInfo.section_title || 'যোগাযোগ করুন'}
           </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-xs sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             {contactInfo.section_subtitle || 'আপনার কোনো প্রশ্ন বা প্রজেক্ট নিয়ে আলোচনা করতে সরাসরি যোগাযোগ করতে পারেন'}
           </p>
         </div>
 
         {/* Quick Contact Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-xl mx-auto mb-12 sm:mb-16">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-stretch sm:items-center max-w-xl mx-auto mb-6 sm:mb-16">
           <Button 
             onClick={handleWhatsAppClick}
             variant="hero" 
-            size="lg" 
-            className="hover-lift bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-6 rounded-xl shadow-sm"
+            size="default" 
+            className="hover-lift bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 sm:py-6 rounded-xl shadow-sm text-xs sm:text-base"
           >
-            <MessageCircle className="w-5 h-5 mr-2" />
+            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" />
             WhatsApp এ মেসেজ করুন
           </Button>
           <Button 
             onClick={handleCallClick}
             variant="hero-outline" 
-            size="lg" 
-            className="hover-lift font-semibold py-6 rounded-xl"
+            size="default" 
+            className="hover-lift font-semibold py-3 sm:py-6 rounded-xl text-xs sm:text-base"
           >
-            <PhoneCall className="w-5 h-5 mr-2 text-primary" />
+            <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2 text-primary" />
             সরাসরি কল করুন
           </Button>
           <Button 
             onClick={handleEmailClick}
             variant="outline" 
-            size="lg" 
-            className="hover-lift font-semibold py-6 rounded-xl"
+            size="default" 
+            className="hover-lift font-semibold py-3 sm:py-6 rounded-xl text-xs sm:text-base"
           >
-            <Mail className="w-5 h-5 mr-2 text-primary" />
+            <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2 text-primary" />
             ইমেইল পাঠান
           </Button>
         </div>

@@ -31,26 +31,26 @@ const Projects = () => {
     : items.filter(p => p.category === selectedCategory);
 
   return (
-    <section className="py-16 sm:py-24 bg-card/30 border-y border-border/40">
+    <section className="py-8 sm:py-20 bg-card/30 border-y border-border/40">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+        <div className="text-center mb-6 sm:mb-12">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">
             {projectsData.section_title || 'আমার প্রজেক্ট'}
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-xs sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
             {projectsData.section_subtitle || 'ওয়েব ডেভেলপমেন্ট, গ্রাফিক্স ডিজাইন এবং ভিডিও এডিটিং এর বিভিন্ন প্রজেক্টের নমুনা'}
           </p>
 
           {/* Interactive Category Filter Pills (Mobile Horizontal Scrollable) */}
           {categories.length > 1 && (
-            <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto py-4 mt-4 px-2 no-scrollbar">
+            <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto py-2.5 sm:py-4 mt-2 sm:mt-4 px-1 sm:px-2 no-scrollbar">
               {categories.map((category, idx) => {
                 const isActive = selectedCategory === category;
                 return (
                   <button
                     key={idx}
                     onClick={() => setSelectedCategory(category)}
-                    className={`whitespace-nowrap px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-sm ${
+                    className={`whitespace-nowrap px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-sm ${
                       isActive 
                         ? "bg-primary text-primary-foreground shadow-md scale-105" 
                         : "bg-card border border-border text-foreground hover:bg-muted"
@@ -65,7 +65,7 @@ const Projects = () => {
         </div>
         
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {filteredItems.map((project, index) => {
             const originalIndex = items.indexOf(project);
             const imgSrc = project.image || defaultImages[originalIndex >= 0 ? originalIndex : 0];
@@ -73,11 +73,11 @@ const Projects = () => {
             return (
               <Card 
                 key={index} 
-                className="gradient-card hover-lift border border-border/80 group overflow-hidden flex flex-col justify-between shadow-sm rounded-2xl"
+                className="gradient-card hover-lift border border-border/80 group overflow-hidden flex flex-col justify-between shadow-sm rounded-xl sm:rounded-2xl"
               >
                 <div>
                   {/* Project Image or Sleek Gradient Banner */}
-                  <div className="h-44 sm:h-48 bg-muted overflow-hidden relative">
+                  <div className="h-36 sm:h-48 bg-muted overflow-hidden relative">
                     {imgSrc ? (
                       <a href={project.demo} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
                         <img 

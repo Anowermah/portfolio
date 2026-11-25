@@ -17,13 +17,13 @@ const Skills = () => {
   const skillsData = settings.skills;
 
   return (
-    <section className="py-16 sm:py-24 bg-background">
+    <section className="py-8 sm:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="animate-fade-in text-center mb-10 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+        <div className="animate-fade-in text-center mb-6 sm:mb-16">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">
             {skillsData.section_title || 'আমার দক্ষতা'}
           </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-xs sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             {skillsData.section_subtitle || 'ওয়েব ডেভেলপমেন্ট, গ্রাফিক্স ডিজাইন, ভিডিও এডিটিং এবং প্রযুক্তিগত সকল ক্ষেত্রে ব্যাপক অভিজ্ঞতা'}
           </p>
         </div>
