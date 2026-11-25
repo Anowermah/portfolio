@@ -28,6 +28,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { toast } from 'sonner';
+import { AdminPWAInstallButton } from '@/components/admin/AdminPWAInstallModal';
 
 interface DashboardStats {
   totalMessages: number;
@@ -145,6 +146,7 @@ const AdminDashboard = () => {
                 <span>সাইট কাস্টমাইজার</span>
               </Link>
             </Button>
+            <AdminPWAInstallButton />
           </div>
         </div>
       </div>

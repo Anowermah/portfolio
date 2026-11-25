@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Outlet, useNavigate, useLocation, Link } from 'react-router-dom';
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AdminSidebar } from './AdminSidebar';
+import { AdminPWAInstallButton } from './AdminPWAInstallModal';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from "@/components/ui/button";
 import { 
@@ -81,6 +82,7 @@ const AdminLayout = () => {
             </div>
 
             <div className="flex items-center gap-2">
+              <AdminPWAInstallButton />
               <Button asChild variant="outline" size="sm" className="text-xs h-9 rounded-xl shadow-xs">
                 <a href="/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
                   <Globe className="w-3.5 h-3.5 text-primary" />

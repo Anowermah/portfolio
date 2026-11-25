@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { Loader2, Shield } from 'lucide-react';
+import { AdminPWAInstallButton } from '@/components/admin/AdminPWAInstallModal';
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
@@ -93,6 +94,13 @@ const AdminLogin = () => {
               )}
             </Button>
           </form>
+
+          <div className="pt-4 mt-4 border-t border-border/60 text-center">
+            <p className="text-xs text-muted-foreground mb-2">
+              ফোনে সরাসরি অ্যাপ হিসেবে ব্যবহার করতে চান?
+            </p>
+            <AdminPWAInstallButton variant="outline" className="w-full" />
+          </div>
         </CardContent>
       </Card>
     </div>
